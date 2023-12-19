@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="StyleSheet.css">
+  <title>Мой профиль</title>
+</head>
+<body>
+  <header>
+    <h1>Мой профиль</h1>
+    <!-- Добавляем кнопку "На главную" -->
+    <a href="HTMLPage1.html" class="home-link">На главную</a>
+  </header>
+  <main>
+   <div class="profile-container"> <!-- Обернем оба белых прямоугольника в контейнер -->
+    <section id="profile-info" class="profile-section">
+      <h2>Информация о профиле</h2>
+      <div class="profile-details">
+        <div class="profile-picture-container">
+            <img src="profile-picture.jpg" alt="Моя фотография" class="profile-picture">
+        </div>
+        <div class="profile-data">
+          <p><strong>Email:</strong> <span id="profile-email">example@email.com</span></p>
+          <p><strong>Nickname:</strong> <span id="profile-nickname">my_nickname</span></p>
+          <p><strong>Опыт:</strong> соревнуется с 2019 года</p>
+        </div>
+      </div>
+    </section>
+    <section id="education-and-work" class="profile-section">
+        <h2>Обучение и Работа</h2>
+        <div class="profile-details">
+            <p><strong>Образование:</strong> 2000-2005, ABC University</p>
+            <p><strong>Работа:</strong> 2005 - по настоящее время, AA Company, CEO</p>
+        </div>
+    </section>
+    <section id="achievements" class="profile-section">
+      <h2>Мои достижения</h2>
+      <div class="profile-details">
+        <div class="achievement">
+            <img src="achievement.png" alt="Достижение 1">
+            <p>Достижение 1</p>
+        </div>
+        <div class="achievement">
+            <img src="achievement.png" alt="Достижение 2">
+            <p>Достижение 2</p>
+        </div>
+      </div>
+    </section>
+   </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Соревнования по машинному обучению</p>
+  </footer>
+  <script src="Script1.js"></script>
+</body>
+</html>

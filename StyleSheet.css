@@ -1,0 +1,379 @@
+﻿body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0ebff;
+}
+
+header {
+  background: linear-gradient(45deg, #ff6f61, #574b90);
+  color: #ffffff;
+  text-align: center;
+  padding: 1em 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #574b90;
+}
+
+h3 {
+  margin-bottom: 25px; /* Увеличьте расстояние между текстом и полем ввода email (настройте по вашему усмотрению) */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #574b90;
+  color: #ffffff;
+  text-align: center;
+  padding: 1em 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+#about-us {
+  background-color: #f3d0f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для контейнера с затемнением фона */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+  z-index: 1000;
+}
+
+/* Стили для кнопки закрытия */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ff4c3d;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Стили для полупрозрачного кружочка */
+.close-button::before {
+  content: "";
+  position: absolute;
+  width: 30px; /* Размер кружочка */
+  height: 30px; /* Размер кружочка */
+  background-color: rgba(255, 76, 61, 0.5); /* Цвет и прозрачность */
+  border-radius: 50%; /* Круглая форма */
+  transform: scale(0); /* Начальный масштаб 0 (не видимый) */
+  transition: transform 0.3s ease; /* Анимация масштаба */
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(0); /* Центрирование и начальный масштаб 0 */
+}
+
+
+/* Анимация появления кружочка при наведении */
+.close-button:hover::before {
+  transform: translate(-50%, -50%) scale(1); /* Увеличение масштаба до 1 при наведении */
+}
+
+/* Стили для кнопки "Участвовать" */
+#join-button {
+  background-color: #ff6f61;
+  color: #fff;
+  font-size: 24px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: block;
+  margin: 0 auto;
+  position: relative; /* Добавьте этот стиль для правильного позиционирования */
+  margin-top: 20px; /* Добавьте верхний отступ для разделения от блока "О нас" */
+}
+
+/* Стили для всплывающего меню */
+.popup-menu {
+  width: 450px;
+  position: fixed;
+  top: 50%; /* Размещение меню по вертикали в середине страницы */
+  left: 50%; /* Размещение меню по горизонтали в середине страницы */
+  transform: translate(-50%, -50%); /* Центрирование по вертикали и горизонтали */
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1001; /* Установите z-index, чтобы меню было поверх оверлея */
+}
+
+/* Стили для полей ввода */
+.input-field {
+  margin-bottom: 10px;
+  text-align: left; /* Выравнивание текста в поле ввода влево */
+  display: flex; /* Используем flex-контейнер для выравнивания */
+  align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+.input-field label {
+  flex: 0 0 100px; /* Задаем ширину метки (100px, настройте по вашему усмотрению) */
+  margin-right: 10px; /* Расстояние между меткой и полем ввода */
+  text-align: right; /* Выравнивание текста метки по правому краю */
+}
+
+.input-field input {
+  flex: 1; /* Оставшееся пространство занимает поле ввода */
+  padding: 5px; /* Добавляем отступы для поля ввода */
+  border: 1px solid #ccc; /* Граница поля ввода (по желанию) */
+  border-radius: 5px; /* Закругляем углы поля ввода (по желанию) */
+}
+
+/* Стили для кнопки "Участвовать" при наведении */
+#join-button:hover {
+  background-color: #ff4c3d; /* Измененный цвет при наведении */
+}
+
+#join-submit {
+  margin-top: 25px; /* Увеличьте расстояние между кнопкой и полем ввода никнейма (настройте по вашему усмотрению) */
+  background-color: #4CAF50; /* Цвет фона */
+  color: #fff; /* Цвет текста */
+  padding: 10px 20px; /* Внутренние отступы кнопки */
+  border: none; /* Убираем границу */
+  border-radius: 5px; /* Закругляем углы */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Анимация при наведении */
+}
+
+#join-submit:hover {
+  background-color: #45a049; /* Изменяем цвет фона при наведении */
+}
+
+#thanks-message {
+  display: none; /* Скрываем изначально */
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #4CAF50; /* Зеленый цвет для сообщения */
+}
+
+img[src="gold-cup.png"] {
+  width: 20px; /* Ширина */
+  height: 20px; /* Высота */
+}
+
+/* Стили для таблицы лидеров */
+#leaderboard-list {
+  list-style: none;
+  padding: 0;
+}
+
+#leaderboard-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  background-color: #f5f5f5; /* Цвет фона */
+  border-bottom: 1px solid #ddd; /* Горизонтальная линия-разделитель */
+  margin: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 8px; /* Скругление углов */
+}
+
+#leaderboard-list li img {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px; /* Отступ слева от значка кубка */
+}
+
+/* Стили для текста (никнейма и баллов) */
+#leaderboard-list li span {
+  margin: 80px; /* Внутренние отступы по горизонтали */
+}
+
+/* Стили для первой строки (первое место) */
+#leaderboard-list li:first-child {
+  background-color: #f3d0f4; /* Цвет фона для первого места (золото) */
+}
+
+/* Стили для кнопки "Мой профиль" */
+.profile-link {
+  position: absolute;
+  top: 20px; /* Расстояние сверху */
+  right: 20px; /* Расстояние справа */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* Создаем круглый вид */
+  background-color: #ffffff; /* Цвет кружочка */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Стили для кнопки "На главную" */
+.home-link {
+  position: absolute;
+  top: 55px; /* Расстояние сверху */
+  right: 20px; /* Расстояние справа */
+  text-decoration: none; /* Убираем подчеркивание */
+  background-color: #574b90; /* Цвет фона кнопки */
+  color: #ffffff; /* Цвет текста кнопки */
+  padding: 10px 20px; /* Внутренние отступы кнопки */
+  border-radius: 5px; /* Скругление углов */
+  transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+  transform: translateY(-50%); /* Отцентровываем кнопку по вертикали */
+}
+
+/* Стили для изменения цвета фона при наведении */
+.home-link:hover {
+  background-color: #463d7b; /* Новый цвет фона при наведении */
+}
+
+.profile-details {
+  display: flex; /* Используем flex-контейнер для размещения фото и данных в одной строке */
+  align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+.profile-picture-container {
+  width: 100px; /* Задаем ширину и высоту контейнера, чтобы создать круг */
+  height: 100px;
+  border-radius: 50%; /* Создаем круглую форму */
+  overflow: hidden; /* Обрезаем изображение по границам контейнера */
+  margin-right: 20px; /* Добавляем отступ между фото и данными */
+}
+
+.profile-picture {
+  width: 100px; /* Ширина фотографии профиля */
+  height: 100px; /* Высота фотографии профиля */
+  border-radius: 50%; /* Круглая форма */
+  margin-right: 20px; /* Отступ справа от фотографии */
+}
+
+.profile-data {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Отступ между фотографией и информацией о профиле */
+}
+
+.profile-data p {
+  margin: 15px;; /* Убираем внешние отступы абзаца для текста Email и Nickname */
+}
+
+#achievements {
+  margin-top: 20px; /* Отступ сверху для раздела "Мои достижения" */
+}
+
+.profile-achievements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Равномерное распределение достижений по горизонтали */
+}
+
+.achievement {
+  width: calc(33.33% - 20px); /* Ширина для каждого достижения (3 в ряд) с отступами между ними */
+  margin-right: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.achievement img {
+  width: 100px; /* Ширина изображения достижения */
+  height: 100px; /* Высота изображения достижения */
+  border-radius: 50%; /* Делаем изображение круглым */
+}
+
+.achievement p {
+  margin-top: 10px; /* Вертикальный отступ между изображением и текстом */
+}
+
+.profile-section {
+  background-color: #ffffff; /* Цвет фона белых прямоугольников */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/*стиль для контейнера с белыми прямоугольниками */
+.profile-container {
+  background-color: #574b90; /* Темный фон для контейнера */
+  padding: 20px;
+}
+
+#education-and-work {
+  background-color: #ffffff; /* Цвет фона */
+  padding: 20px; /* Внутренние отступы */
+  margin-bottom: 20px; /* Отступ снизу */
+  border-radius: 8px; /* Скругление углов */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень вокруг блока */
+}
+
+#education-and-work p {
+  margin-bottom: 10px; /* Отступ между пунктами */
+  line-height: 1.5; /* Межстрочный интервал */
+}
+
+.button {
+  display: inline-block;
+  background-color: #f0ebff;
+  color: #574b90;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+  background-color: #ff4c3d;
+}
+
+
+/* Стили для футера */
+footer {
+  background: linear-gradient(45deg, #ff6f61, #574b90);
+  color: #ffffff;
+  text-align: center;
+  padding: 1em 0;
+  position: relative; /* Устанавливаем позицию в относительное */
+  z-index: 1; /* Устанавливаем z-index, чтобы футер находился выше по стеку */
+}
